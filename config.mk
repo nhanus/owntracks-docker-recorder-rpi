@@ -1,4 +1,7 @@
 CFLAGS += -g
+CC = arm-linux-gnueabihf-gcc
+CONFIGFILE = /etc/default/ot-recorder
+FREEBSD ?= no
 
 INSTALLDIR = /usr
 
@@ -73,8 +76,8 @@ MORELIBS = # -lssl
 # and in particular could require you to add the lua+version (e.g lua-5.2)
 # to both pkg-config invocations
 
-LUA_CFLAGS = `pkg-config --cflags lua5.2`
-LUA_LIBS   = `pkg-config --libs lua5.2`
+LUA_CFLAGS = -I/usr/include/lua5.2 -llua5.2
+LUA_LIBS   = -L /usr/lib/arm-linux-gnueabihf/
 
-SODIUM_CFLAGS = `pkg-config --cflags libsodium`
-SODIUM_LIBS = `pkg-config --libs libsodium`
+SODIUM_CFLAGS = 
+SODIUM_LIBS   = -lsodium
