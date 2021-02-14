@@ -5,6 +5,7 @@ on:
       - 'v*.*.*'
 jobs:
   push_to_registry:
+    if: github.ref == 'refs/heads/master'
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
